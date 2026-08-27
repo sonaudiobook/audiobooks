@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librería Digital - Audiocuentos Interactivos</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg-color: #faf8f5;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+            color: #312e81;
+        }
+
+        header p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* 3 columnas fijas en desktop y responsive grid */
+        .ebook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .ebook-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
+        }
+
+        .ebook-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+        }
+
+
+
+        .ebook-cover {
+            background: #f8fafc;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+        }
+
+        .ebook-cover img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .ebook-card:hover .ebook-cover img {
+            transform: scale(1.04);
+        }
+
+
+
+        .ebook-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .ebook-title {
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            color: #111827;
+        }
+
+        .ebook-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0 0 15px 0;
+            flex-grow: 1;
+        }
+
+        .ebook-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .ebook-price {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #059669;
+        }
+
+        .btn-detail {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-detail:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 100%;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            border: none;
+            background: none;
+        }
+
+        .close-btn:hover {
+            color: var(--text-main);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .modal-icon {
+            font-size: 3rem;
+        }
+
+        .modal-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .features-list li {
+            padding: 6px 0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: #059669;
+            font-weight: bold;
+        }
+
+        .paypal-box {
+            background-color: #f9fafb;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .paypal-btn {
+            background-color: #0070ba;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.2s;
+        }
+
+        .paypal-btn:hover {
+            background-color: #005ea6;
+        }
+
+        /* Responsividad para móviles: Permitir 3 columnas compactas o ajustar según preferencia */
+        @media (max-width: 768px) {
+            .ebook-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            .ebook-cover {
+                height: 260px;
+            }
+            .ebook-info {
+                padding: 10px;
+            }
+            .ebook-title {
+                font-size: 0.85rem;
+                margin-bottom: 4px;
+            }
+            .ebook-desc {
+                display: none; /* Ocultar descripción larga en móvil para mantener la limpieza */
+            }
+            .btn-detail {
+                padding: 4px 8px;
+                font-size: 0.75rem;
+            }
+            .ebook-price {
+                font-size: 0.85rem;
+            }
+            header h1 {
+                font-size: 1.6rem;
+            }
+        }
+    
+        /* Estilos del Hero */
+        .hero-section {
+            max-width: 1100px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding: 40px 0 40px 20px;
+        }
+
+        .hero-content h1 {
+            margin: 0 0 15px 0;
+            font-size: 2.5rem;
+            color: #312e81;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            margin: 0 0 20px 0;
+            color: var(--text-muted);
+            font-size: 1.15rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 380px;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                padding: 20px;
+                margin: 0 10px 30px 10px;
+            }
+            .hero-content {
+                padding: 0;
+            }
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .hero-image img {
+                max-height: 250px;
+            }
+        }
+
+    
+        /* Estilos para el control de audio flotante */
+        .audio-control-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.2s, transform 0.2s;
+            border: 2px solid white;
+        }
+
+        .audio-control-btn:hover {
+            background-color: var(--primary-hover);
+            transform: scale(1.05);
+        }
+
+        .audio-control-btn.paused {
+            background-color: #6b7280;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Audio de Bienvenida -->
+    <audio id="welcomeAudio" src="" preload="auto" autoplay></audio>
+
+    <!-- Botón Flotante de Audio -->
+    <div id="audioControl" class="audio-control-btn" onclick="toggleAudio()" title="Pausar / Reproducir narración">
+        <span id="audioIcon">🔊</span> <span id="audioText">Pausar audio</span>
+    </div>
+
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Audiocuentos Interactivos</h1>
+            <p>Historias ilustradas con narración en video para despertar la imaginación de los más pequeños página por página.</p>
+        </div>
+        <div class="hero-image">
+            <img src="hero.jpg" alt="Cuentos mágicos interactivos">
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- 3 columnas por 2 filas hacia abajo (Total 6 ebooks) -->
+        <div class="ebook-grid">
+
+            <!-- Ebook 1 -->
+            <div class="ebook-card">
+                <div class="ebook-cover">
+                    <img src="mockup-tablet.jpg" alt="Audiocuento Interactivo">
+                </div>
+                <div class="ebook-info">
+                    <h3 class="ebook-title">El Pequeño León Valiente</h3>
+                    <p class="ebook-desc">Una hermosa historia sobre el coraje y la amistad en la sabana africana.</p>
+                    <div class="ebook-footer">
+                        <span class="ebook-price">$7.00 USD</span>
+                        <button class="btn-detail" onclick="openModal('modal1')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ebook 2 -->
+            <div class="ebook-card">
+                <div class="ebook-cover">
+                    <img src="mockup-tablet.jpg" alt="Audiocuento Interactivo">
+                </div>
+                <div class="ebook-info">
+                    <h3 class="ebook-title">Aventura en las Estrellas</h3>
+                    <p class="ebook-desc">Viaje intergaláctico que enseña los planetas de forma divertida.</p>
+                    <div class="ebook-footer">
+                        <span class="ebook-price">$7.00 USD</span>
+                        <button class="btn-detail" onclick="openModal('modal2')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ebook 3 -->
+            <div class="ebook-card">
+                <div class="ebook-cover">
+                    <img src="mockup-tablet.jpg" alt="Audiocuento Interactivo">
+                </div>
+                <div class="ebook-info">
+                    <h3 class="ebook-title">El Secreto del Bosque</h3>
+                    <p class="ebook-desc">Un cuento mágico sobre el cuidado de la naturaleza y los animales.</p>
+                    <div class="ebook-footer">
+                        <span class="ebook-price">$7.00 USD</span>
+                        <button class="btn-detail" onclick="openModal('modal3')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ebook 4 -->
+            <div class="ebook-card">
+                <div class="ebook-cover">
+                    <img src="mockup-tablet.jpg" alt="Audiocuento Interactivo">
+                </div>
+                <div class="ebook-info">
+                    <h3 class="ebook-title">El Pez Explorador</h3>
+                    <p class="ebook-desc">Descubre los misterios del fondo marino y la importancia de la curiosidad.</p>
+                    <div class="ebook-footer">
+                        <span class="ebook-price">$7.00 USD</span>
+                        <button class="btn-detail" onclick="openModal('modal4')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ebook 5 -->
+            <div class="ebook-card">
+                <div class="ebook-cover">
+                    <img src="mockup-tablet.jpg" alt="Audiocuento Interactivo">
+                </div>
+                <div class="ebook-info">
+                    <h3 class="ebook-title">El Dragón Amigable</h3>
+                    <p class="ebook-desc">Rompiendo estereotipos: un dragón que prefería hornear galletas.</p>
+                    <div class="ebook-footer">
+                        <span class="ebook-price">$7.00 USD</span>
+                        <button class="btn-detail" onclick="openModal('modal5')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ebook 6 -->
+            <div class="ebook-card">
+                <div class="ebook-cover">
+                    <img src="mockup-tablet.jpg" alt="Audiocuento Interactivo">
+                </div>
+                <div class="ebook-info">
+                    <h3 class="ebook-title">Cuentos para Dormir</h3>
+                    <p class="ebook-desc">Relatos cortos y relajantes diseñados para la hora de ir a la cama.</p>
+                    <div class="ebook-footer">
+                        <span class="ebook-price">$7.00 USD</span>
+                        <button class="btn-detail" onclick="openModal('modal6')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modales para cada Ebook -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal1')">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon">🦁</div>
+                <div>
+                    <h2>El Pequeño León Valiente</h2>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $7.00 USD</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Este audiocuento interactivo de 20 páginas combina hermosas ilustraciones a todo color con videos incrustados donde una narradora experta guía a los niños página por página.</p>
+                <ul class="features-list">
+                    <li>Acceso inmediato en formato digital interactivo</li>
+                    <li>Videos de narración integrados en cada hoja</li>
+                    <li>Compatible con celulares, tablets y computadoras</li>
+                </ul>
+                <div class="paypal-box">
+                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu pago seguro con PayPal y recibe acceso automático:</p>
+                    <!-- Reemplaza el enlace href de ejemplo con tu enlace o botón de PayPal Business -->
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($7.00 USD)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal2')">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon">🚀</div>
+                <div>
+                    <h2>Aventura en las Estrellas</h2>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $7.00 USD</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Un viaje intergaláctico diseñado para despertar la curiosidad científica de los niños mientras disfrutan de una narración visual y dinámica en cada página.</p>
+                <ul class="features-list">
+                    <li>20 páginas ilustradas de alta calidad</li>
+                    <li>Narración en video integrada</li>
+                    <li>Ideal para niños de 4 a 8 años</li>
+                </ul>
+                <div class="paypal-box">
+                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu pago seguro con PayPal y recibe acceso automático:</p>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($7.00 USD)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal3')">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon">🌲</div>
+                <div>
+                    <h2>El Secreto del Bosque</h2>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $7.00 USD</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Una mágica aventura en la naturaleza que fomenta valores ecológicos y el respeto por los animales del bosque a través de un formato multimedia innovador.</p>
+                <ul class="features-list">
+                    <li>Flipbook interactivo sin descargas pesadas</li>
+                    <li>Videos cortos de narración por página</li>
+                    <li>Acceso de por vida desde cualquier dispositivo</li>
+                </ul>
+                <div class="paypal-box">
+                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu pago seguro con PayPal y recibe acceso automático:</p>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($7.00 USD)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal4')">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon">🌊</div>
+                <div>
+                    <h2>El Pez Explorador</h2>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $7.00 USD</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Sumérgete en las profundidades del mar con este audiocuento lleno de color, vida marina y una historia entrañable sobre la amistad.</p>
+                <ul class="features-list">
+                    <li>Experiencia multimedia inmersiva</li>
+                    <li>Narración visual en cada hoja</li>
+                    <li>Formato adaptable a celulares y tablets</li>
+                </ul>
+                <div class="paypal-box">
+                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu pago seguro con PayPal y recibe acceso automático:</p>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($7.00 USD)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal5')">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon">🏰</div>
+                <div>
+                    <h2>El Dragón Amigable</h2>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $7.00 USD</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Una historia divertida y tierna que rompe moldes clásicos, ideal para fomentar la empatía y la aceptación de las diferencias en los más pequeños.</p>
+                <ul class="features-list">
+                    <li>20 páginas ilustradas</li>
+                    <li>Videos de narración integrados</li>
+                    <li>Lectura dinámica y entretenida</li>
+                </ul>
+                <div class="paypal-box">
+                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu pago seguro con PayPal y recibe acceso automático:</p>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($7.00 USD)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal6')">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon">🌙</div>
+                <div>
+                    <h2>Cuentos para Dormir</h2>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $7.00 USD</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Relatos breves, tranquilos y reconfortantes diseñados específicamente para acompañar a los niños a relajarse antes de conciliar el sueño.</p>
+                <ul class="features-list">
+                    <li>Historias calmadas y armónicas</li>
+                    <li>Narración en video suave y pausada</li>
+                    <li>Perfecto para la rutina nocturna</li>
+                </ul>
+                <div class="paypal-box">
+                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu pago seguro con PayPal y recibe acceso automático:</p>
+                    <a href="https://www.paypal.com/cgi-bin/webScript?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($7.00 USD)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Cerrar al hacer clic fuera del contenido del modal
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    
+
+        // Control de Audio de Bienvenida con Selección Aleatoria (1 al 5)
+        const audio = document.getElementById('welcomeAudio');
+        const randomNum = Math.floor(Math.random() * 5) + 1;
+        audio.src = `bienvenida${randomNum}.mp3`;
+        const controlBtn = document.getElementById('audioControl');
+        const audioIcon = document.getElementById('audioIcon');
+        const audioText = document.getElementById('audioText');
+
+        // Forzar intento de reproducción automática al cargar
+        window.addEventListener('load', () => {
+            audio.play().then(() => {
+                audioIcon.textContent = "🔊";
+                audioText.textContent = "Pausar audio";
+                controlBtn.classList.remove('paused');
+            }).catch(error => {
+                console.log("Autoplay bloqueado por políticas del navegador. Esperando interacción.", error);
+                audioIcon.textContent = "🔇";
+                audioText.textContent = "Reproducir audio";
+                controlBtn.classList.add('paused');
+                
+                // Reproducir automáticamente al primer toque/clic en cualquier parte de la página
+                const unlockAudio = () => {
+                    audio.play().then(() => {
+                        audioIcon.textContent = "🔊";
+                        audioText.textContent = "Pausar audio";
+                        controlBtn.classList.remove('paused');
+                        document.removeEventListener('click', unlockAudio);
+                        document.removeEventListener('keydown', unlockAudio);
+                    }).catch(e => console.log(e));
+                };
+                document.addEventListener('click', unlockAudio, { once: true });
+                document.addEventListener('keydown', unlockAudio, { once: true });
+            });
+        });
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                audioIcon.textContent = "🔊";
+                audioText.textContent = "Pausar audio";
+                controlBtn.classList.remove('paused');
+            } else {
+                audio.pause();
+                audioIcon.textContent = "🔇";
+                audioText.textContent = "Reproducir audio";
+                controlBtn.classList.add('paused');
+            }
+        }
+
+        // Actualizar estado si el audio termina por sí solo
+        audio.addEventListener('ended', () => {
+            audioIcon.textContent = "🔄";
+            audioText.textContent = "Volver a escuchar";
+            controlBtn.classList.add('paused');
+        });
+
+    </script>
+</body>
+</html>
