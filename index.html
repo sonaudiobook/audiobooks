@@ -286,7 +286,7 @@
             background-color: #005ea6;
         }
 
-        /* Botón de Audio Flotante */
+        /* Botón de Audio Flotante (Abajo a la Derecha) */
         .audio-control-btn {
             position: fixed;
             bottom: 20px;
@@ -314,6 +314,37 @@
 
         .audio-control-btn.paused {
             background-color: #6b7280;
+        }
+
+        /* Botón Flotante de WhatsApp (Abajo a la Izquierda) */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            z-index: 2000;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            text-decoration: none;
+            border: 2px solid white;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
         }
 
         /* Media Queries para Responsividad Completa */
@@ -355,12 +386,29 @@
                 padding: 8px 12px;
                 font-size: 0.8rem;
             }
+            .whatsapp-float {
+                bottom: 15px;
+                left: 15px;
+                width: 48px;
+                height: 48px;
+            }
+            .whatsapp-float svg {
+                width: 26px;
+                height: 26px;
+            }
         }
     </style>
 </head>
 <body>
 
     <audio id="welcomeAudio" src="" preload="auto" autoplay></audio>
+
+    <!-- Botón Flotante de WhatsApp (Abajo a la izquierda) -->
+    <a href="https://wa.me/524613444540" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
 
     <div id="audioControl" class="audio-control-btn" onclick="toggleAudio()" title="Pausar / Reproducir narración">
         <span id="audioIcon">🔊</span> <span id="audioText">Pausar audio</span>
@@ -381,13 +429,13 @@
 
             <div class="ebook-card">
                 <div class="ebook-cover">
-                    <img src="mockup-tablet.jpg" alt="Audiocuento Interactivo">
+                    <img src="pipo.jpg" alt="Audiocuento Interactivo">
                 </div>
                 <div class="ebook-info">
-                    <h3 class="ebook-title">El Pequeño León Valiente</h3>
-                    <p class="ebook-desc">Una hermosa historia sobre el coraje y la amistad en la sabana africana.</p>
+                    <h3 class="ebook-title">Pipo y el regalo del cielo</h3>
+                    <p class="ebook-desc">Una hermosa historia sobre la amistad y la ayuda entre amigos.</p>
                     <div class="ebook-footer">
-                        <span class="ebook-price">$7.00 USD</span>
+                        <span class="ebook-price">$20.00 MXN</span>
                         <button class="btn-detail" onclick="openModal('modal1')">Ver más</button>
                     </div>
                 </div>
@@ -401,7 +449,7 @@
                     <h3 class="ebook-title">Aventura en las Estrellas</h3>
                     <p class="ebook-desc">Viaje intergaláctico que enseña los planetas de forma divertida.</p>
                     <div class="ebook-footer">
-                        <span class="ebook-price">$7.00 USD</span>
+                        <span class="ebook-price">$20.00 MXN</span>
                         <button class="btn-detail" onclick="openModal('modal2')">Ver más</button>
                     </div>
                 </div>
@@ -415,7 +463,7 @@
                     <h3 class="ebook-title">El Secreto del Bosque</h3>
                     <p class="ebook-desc">Un cuento mágico sobre el cuidado de la naturaleza y los animales.</p>
                     <div class="ebook-footer">
-                        <span class="ebook-price">$7.00 USD</span>
+                        <span class="ebook-price">$20.00 MXN</span>
                         <button class="btn-detail" onclick="openModal('modal3')">Ver más</button>
                     </div>
                 </div>
@@ -429,7 +477,7 @@
                     <h3 class="ebook-title">El Pez Explorador</h3>
                     <p class="ebook-desc">Descubre los misterios del fondo marino y la importancia de la curiosidad.</p>
                     <div class="ebook-footer">
-                        <span class="ebook-price">$7.00 USD</span>
+                        <span class="ebook-price">$20.00 MXN</span>
                         <button class="btn-detail" onclick="openModal('modal4')">Ver más</button>
                     </div>
                 </div>
@@ -443,7 +491,7 @@
                     <h3 class="ebook-title">El Dragón Amigable</h3>
                     <p class="ebook-desc">Rompiendo estereotipos: un dragón que prefería hornear galletas.</p>
                     <div class="ebook-footer">
-                        <span class="ebook-price">$7.00 USD</span>
+                        <span class="ebook-price">$20.00 MXN</span>
                         <button class="btn-detail" onclick="openModal('modal5')">Ver más</button>
                     </div>
                 </div>
@@ -457,7 +505,7 @@
                     <h3 class="ebook-title">Cuentos para Dormir</h3>
                     <p class="ebook-desc">Relatos cortos y relajantes diseñados para la hora de ir a la cama.</p>
                     <div class="ebook-footer">
-                        <span class="ebook-price">$7.00 USD</span>
+                        <span class="ebook-price">$20.00 MXN</span>
                         <button class="btn-detail" onclick="openModal('modal6')">Ver más</button>
                     </div>
                 </div>
@@ -466,26 +514,30 @@
         </div>
     </div>
 
+    <!-- Modales de información -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('modal1')">&times;</button>
             <div class="modal-header">
-                <div class="modal-icon">🦁</div>
+                <div class="modal-icon">🔮</div>
                 <div>
-                    <h2>El Pequeño León Valiente</h2>
-                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $7.00 USD</p>
+                    <h2>Pipo y el regalo del cielo</h2>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $20.00 MXN</p>
                 </div>
             </div>
             <div class="modal-body">
-                <p>Este audiocuento interactivo de 20 páginas combina hermosas ilustraciones a todo color con videos incrustados donde una narradora experta guía a los niños página por página.</p>
+                <p>Este audiocuento interactivo de 28 páginas combina hermosas ilustraciones con audio incrustado donde una narradora experta guía a los niños página por página.</p>
                 <ul class="features-list">
                     <li>Acceso inmediato en formato digital interactivo</li>
-                    <li>Videos de narración integrados en cada hoja</li>
+                    <li>Cambia de hoja haciendo clic en la esquina de abajo de la imagen</li>
+                    <li>Botón de audio para escuchar la narración en cada hoja</li>
                     <li>Compatible con celulares, tablets y computadoras</li>
+                    <li>Puede instalar la aplicación en tu celular y ademas te enviamos el cuento para PC</li>
                 </ul>
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu pago seguro con PayPal:</p>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($7.00 USD)</a>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($20.MXN)<br>
+                             o realiza tu pago por OXXO o Banco Azteca.</a>
                 </div>
             </div>
         </div>
@@ -498,7 +550,7 @@
                 <div class="modal-icon">🚀</div>
                 <div>
                     <h2>Aventura en las Estrellas</h2>
-                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $7.00 USD</p>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $20.00 MXN</p>
                 </div>
             </div>
             <div class="modal-body">
@@ -510,7 +562,7 @@
                 </ul>
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu pago seguro con PayPal:</p>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($7.00 USD)</a>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($20.00 MXN)</a>
                 </div>
             </div>
         </div>
@@ -523,7 +575,7 @@
                 <div class="modal-icon">🌲</div>
                 <div>
                     <h2>El Secreto del Bosque</h2>
-                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $7.00 USD</p>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $20.00 MXN</p>
                 </div>
             </div>
             <div class="modal-body">
@@ -535,7 +587,7 @@
                 </ul>
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu pago seguro con PayPal:</p>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($7.00 USD)</a>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($20.00 MXN)</a>
                 </div>
             </div>
         </div>
@@ -548,7 +600,7 @@
                 <div class="modal-icon">🌊</div>
                 <div>
                     <h2>El Pez Explorador</h2>
-                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $7.00 USD</p>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $20.00 MXN</p>
                 </div>
             </div>
             <div class="modal-body">
@@ -560,7 +612,7 @@
                 </ul>
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu pago seguro con PayPal:</p>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($7.00 USD)</a>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($20.00 MXN)</a>
                 </div>
             </div>
         </div>
@@ -573,7 +625,7 @@
                 <div class="modal-icon">🏰</div>
                 <div>
                     <h2>El Dragón Amigable</h2>
-                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $7.00 USD</p>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $20.00 MXN</p>
                 </div>
             </div>
             <div class="modal-body">
@@ -585,7 +637,7 @@
                 </ul>
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu pago seguro con PayPal:</p>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($7.00 USD)</a>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($20.00 MXN)</a>
                 </div>
             </div>
         </div>
@@ -598,7 +650,7 @@
                 <div class="modal-icon">🌙</div>
                 <div>
                     <h2>Cuentos para Dormir</h2>
-                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $7.00 USD</p>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $20.00 MXN</p>
                 </div>
             </div>
             <div class="modal-body">
@@ -610,7 +662,7 @@
                 </ul>
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu pago seguro con PayPal:</p>
-                    <a href="https://www.paypal.com/cgi-bin/webscript?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($7.00 USD)</a>
+                    <a href="https://www.paypal.com/cgi-bin/webscript?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($20.00 MXN)</a>
                 </div>
             </div>
         </div>
