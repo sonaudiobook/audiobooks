@@ -425,6 +425,15 @@
             fill: white;
         }
 
+        /* Estilo para el título inferior */
+        .footer-title {
+            text-align: center;
+            margin: 50px 0 30px 0;
+            font-size: 1.5rem;
+            color: #312e81;
+            font-weight: 600;
+        }
+
         /* Media Queries para Responsividad Completa */
         @media (max-width: 900px) {
             .ebook-grid {
@@ -474,6 +483,10 @@
                 width: 26px;
                 height: 26px;
             }
+            .footer-title {
+                font-size: 1.2rem;
+                padding: 0 15px;
+            }
         }
     </style>
 </head>
@@ -488,7 +501,6 @@
             <span class="promo-badge">¡Oferta Especial!</span>
             <h2>¡Descarga Gratis!</h2>
             <p>Busca y llévate gratis el audiocuento interactivo: <br><strong>"El relojero de los sueños atrapados"</strong>.</p>
-            
         </div>
     </div>
 
@@ -597,12 +609,13 @@
                         <span class="ebook-price">$20.00 MXN</span>
                         <button class="btn-detail" onclick="openModal('modal6')">Ver más</button>
                     </div>
-                    
                 </div>
             </div>
 
         </div>
-        
+
+        <!-- Título agregado hasta abajo -->
+        <h2 class="footer-title">Vuelve pronto, cada semana tenemos nuevos cuentos</h2>
     </div>
 
     <!-- Modal 1 -->
@@ -795,23 +808,15 @@
     </div>
 
     <script>
-        // Mostrar el popup de oferta automáticamente al cargar la página (con un pequeño retraso de 1 segundo)
+        // Mostrar el popup de oferta automáticamente al cargar la página (con un pequeño retraso de 3 segundos)
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 document.getElementById('promoPopup').style.display = 'flex';
-            }, 3000);
+            }, 6000);
         });
 
         function closePromoPopup() {
             document.getElementById('promoPopup').style.display = 'none';
-        }
-
-        // Función para el link ficticio de descarga
-        function handleDownloadClick(event) {
-            event.preventDefault();
-            alert('ir por el cuento gratis.');
-            // Puedes cerrar el popup al hacer clic si lo deseas:
-            // closePromoPopup();
         }
 
         function openModal(modalId) {
