@@ -286,6 +286,84 @@
             background-color: #005ea6;
         }
 
+        /* Estilos específicos para el Popup Promocional */
+        .promo-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.65);
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            padding: 20px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .promo-content {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 16px;
+            max-width: 500px;
+            width: 100%;
+            padding: 35px 30px;
+            position: relative;
+            box-shadow: 0 25px 30px -10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border: 2px solid #e0e7ff;
+        }
+
+        .promo-badge {
+            background-color: #059669;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .promo-content h2 {
+            color: #312e81;
+            margin: 0 0 10px 0;
+            font-size: 1.6rem;
+        }
+
+        .promo-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .download-btn {
+            background-color: #059669;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.2s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+        }
+
+        .download-btn:hover {
+            background-color: #047857;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* Botón de Audio Flotante (Abajo a la Derecha) */
         .audio-control-btn {
             position: fixed;
@@ -376,7 +454,7 @@
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
-            .modal-content {
+            .modal-content, .promo-content {
                 padding: 20px;
                 margin: 10px;
             }
@@ -402,6 +480,17 @@
 <body>
 
     <audio id="welcomeAudio" src="" preload="auto" autoplay></audio>
+
+    <!-- Popup Promocional de Oferta (Aparece automáticamente al cargar) -->
+    <div id="promoPopup" class="promo-popup">
+        <div class="promo-content">
+            <button class="close-btn" onclick="closePromoPopup()">&times;</button>
+            <span class="promo-badge">¡Oferta Especial!</span>
+            <h2>¡Descarga Gratis!</h2>
+            <p>Busca y llévate gratis el audiocuento interactivo: <br><strong>"El relojero de los sueños atrapados"</strong>.</p>
+            
+        </div>
+    </div>
 
     <!-- Botón Flotante de WhatsApp con Mensaje Predeterminado -->
     <a href="https://wa.me/524613444540?text=Hola%20%20me%20interesa%20comprar%20un%20cuento" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Contactar por WhatsApp">
@@ -516,17 +605,7 @@
         
     </div>
 
-
-
-
-
     <!-- Modal 1 -->
-    
-    
-    
-    
-    
-    
     <div id="modal1" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('modal1')">&times;</button>
@@ -546,15 +625,10 @@
                     <li>Compatible con celulares, tablets y computadoras.</li>
                     <li>Cada cuento que recibes es una aplicación que instalas en tu celular o ves en tu pc Windows.</li>
                 </ul>
-                <!--<div class="paypal-box"> 
-                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($20.MXN)<br>
-                             o realiza tu pago por OXXO o Banco Azteca.</a>
-                </div>-->
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a  class="paypal-btn">Pasos para comprar este cuento interactivo ($20.00 MXN)<br>
-                    1.- Haz un depósito en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
+                    <a class="paypal-btn">Pasos para comprar este cuento interactivo.<br>
+                    1.- Haz un depósito de $20.00 pesos en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
                              o realiza tu pago por OXXO al mismo nombre.<br>
                             2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.</a>
                     <p style="margin-bottom: 12px; font-weight: 500;">3.- En Whatsapp recibiras un Link para ver el cuento, desde allí también instalas la aplicacion y descargas el programa para Windows.</p>
@@ -563,13 +637,7 @@
         </div>
     </div>
 
-
-
-
     <!-- Modal 2 -->
-   
-   
-   
     <div id="modal2" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('modal2')">&times;</button>
@@ -589,15 +657,10 @@
                     <li>Compatible con celulares, tablets y computadoras.</li>
                     <li>Cada cuento que recibes es una aplicación que instalas en tu celular o ves en tu pc Windows.</li>
                 </ul>
-                <!--<div class="paypal-box"> 
-                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($20.MXN)<br>
-                             o realiza tu pago por OXXO o Banco Azteca.</a>
-                </div>-->
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a  class="paypal-btn">Pasos para comprar este cuento interactivo ($20.00 MXN)<br>
-                    1.- Haz un depósito en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
+                    <a class="paypal-btn">Pasos para comprar este cuento interactivo.<br>
+                    1.- Haz un depósito de $20.00 pesos en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
                              o realiza tu pago por OXXO al mismo nombre.<br>
                             2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.</a>
                     <p style="margin-bottom: 12px; font-weight: 500;">3.- En Whatsapp recibiras un Link para ver el cuento, desde allí también instalas la aplicacion y descargas el programa para Windows.</p>
@@ -606,12 +669,7 @@
         </div>
     </div>
 
-
-
     <!-- Modal 3 -->
-    
-    
-    
     <div id="modal3" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('modal3')">&times;</button>
@@ -631,27 +689,16 @@
                     <li>Compatible con celulares, tablets y computadoras.</li>
                     <li>Cada cuento que recibes es una aplicación que instalas en tu celular o ves en tu pc Windows.</li>
                 </ul>
-                <!--<div class="paypal-box"> 
-                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($20.MXN)<br>
-                             o realiza tu pago por OXXO o Banco Azteca.</a>
-                </div>-->
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a  class="paypal-btn">Para descargar este cuento envía un Whatsapp al 461 344 4540 con el mensaje "Quiero mi cuento gratis"<br>
-                                        Recibirás un Link del cuento, desde ahi puedes instalar la app, y recibirás un Link donde descargar el programa para ver el cuento en Windows.</a>
+                    <a class="paypal-btn">Para recibir este cuento envía un Whatsapp al 461 344 4540 con el mensaje "Quiero el cuento gratis"<br>
+                                        Recibirás por Whatsapp instrucciones para ver y descargar el cuento.</a>
                 </div>
             </div>
         </div>
     </div>
 
-    
-    
-    
     <!-- Modal 4 -->
-
-
-
     <div id="modal4" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('modal4')">&times;</button>
@@ -671,15 +718,10 @@
                     <li>Compatible con celulares, tablets y computadoras.</li>
                     <li>Cada cuento que recibes es una aplicación que instalas en tu celular o ves en tu pc Windows.</li>
                 </ul>
-                <!--<div class="paypal-box"> 
-                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($20.MXN)<br>
-                             o realiza tu pago por OXXO o Banco Azteca.</a>
-                </div>-->
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a  class="paypal-btn">Pasos para comprar este cuento interactivo ($20.00 MXN)<br>
-                    1.- Haz un depósito en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
+                    <a class="paypal-btn">Pasos para comprar este cuento interactivo.<br>
+                    1.- Haz un depósito de $20.00 pesos en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
                              o realiza tu pago por OXXO al mismo nombre.<br>
                             2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.</a>
                     <p style="margin-bottom: 12px; font-weight: 500;">3.- En Whatsapp recibiras un Link para ver el cuento, desde allí también instalas la aplicacion y descargas el programa para Windows.</p>
@@ -688,13 +730,7 @@
         </div>
     </div>
 
-
-
-    <!-- Modal5 -->
-    
-    
-    
-    
+    <!-- Modal 5 -->
     <div id="modal5" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('modal5')">&times;</button>
@@ -714,15 +750,10 @@
                     <li>Compatible con celulares, tablets y computadoras.</li>
                     <li>Cada cuento que recibes es una aplicación que instalas en tu celular o ves en tu pc Windows.</li>
                 </ul>
-                <!--<div class="paypal-box"> 
-                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($20.MXN)<br>
-                             o realiza tu pago por OXXO o Banco Azteca.</a>
-                </div>-->
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a  class="paypal-btn">Pasos para comprar este cuento interactivo ($20.00 MXN)<br>
-                    1.- Haz un depósito en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
+                    <a class="paypal-btn">Pasos para comprar este cuento interactivo.<br>
+                    1.- Haz un depósito de $20.00 pesos en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
                              o realiza tu pago por OXXO al mismo nombre.<br>
                             2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.</a>
                     <p style="margin-bottom: 12px; font-weight: 500;">3.- En Whatsapp recibiras un Link para ver el cuento, desde allí también instalas la aplicacion y descargas el programa para Windows.</p>
@@ -730,17 +761,11 @@
             </div>
         </div>
     </div>
-
-
-
     
     <!-- Modal 6 -->
-    
-    
-    
     <div id="modal6" class="modal">
         <div class="modal-content">
-            <button class="close-btn" onclick="closeModal('modal6   ')">&times;</button>
+            <button class="close-btn" onclick="closeModal('modal6')">&times;</button>
             <div class="modal-header">
                 <div class="modal-icon">🔮</div>
                 <div>
@@ -757,15 +782,10 @@
                     <li>Compatible con celulares, tablets y computadoras.</li>
                     <li>Cada cuento que recibes es una aplicación que instalas en tu celular o ves en tu pc Windows.</li>
                 </ul>
-                <!--<div class="paypal-box"> 
-                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TU_BOTON_ID" target="_blank" class="paypal-btn">Comprar con PayPal ($20.MXN)<br>
-                             o realiza tu pago por OXXO o Banco Azteca.</a>
-                </div>-->
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a  class="paypal-btn">Pasos para comprar este cuento interactivo ($20.00 MXN)<br>
-                    1.- Haz un depósito en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
+                    <a class="paypal-btn">Pasos para comprar este cuento interactivo.<br>
+                    1.- Haz un depósito de $20.00 pesos en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
                              o realiza tu pago por OXXO al mismo nombre.<br>
                             2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.</a>
                     <p style="margin-bottom: 12px; font-weight: 500;">3.- En Whatsapp recibiras un Link para ver el cuento, desde allí también instalas la aplicacion y descargas el programa para Windows.</p>
@@ -775,6 +795,25 @@
     </div>
 
     <script>
+        // Mostrar el popup de oferta automáticamente al cargar la página (con un pequeño retraso de 1 segundo)
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('promoPopup').style.display = 'flex';
+            }, 3000);
+        });
+
+        function closePromoPopup() {
+            document.getElementById('promoPopup').style.display = 'none';
+        }
+
+        // Función para el link ficticio de descarga
+        function handleDownloadClick(event) {
+            event.preventDefault();
+            alert('ir por el cuento gratis.');
+            // Puedes cerrar el popup al hacer clic si lo deseas:
+            // closePromoPopup();
+        }
+
         function openModal(modalId) {
             document.getElementById(modalId).style.display = 'flex';
         }
@@ -785,6 +824,9 @@
 
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+            if (event.target.classList.contains('promo-popup')) {
                 event.target.style.display = 'none';
             }
         }
