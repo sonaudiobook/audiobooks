@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Librería Digital - Audiocuentos Interactivos</title>
+    
+    <!-- Configuración PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="apple-touch-icon" href="pipo.jpg">
+
     <style>
         :root {
             --primary: #4f46e5;
@@ -364,6 +370,32 @@
             to { opacity: 1; }
         }
 
+        /* Botón de Instalación PWA Flotante (Abajo a la Derecha, Arriba del Audio) */
+        .install-pwa-btn {
+            position: fixed;
+            bottom: 75px;
+            right: 20px;
+            background-color: #059669;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 2000;
+            display: none; /* Se muestra por JS si el navegador lo permite */
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.2s, transform 0.2s;
+            border: 2px solid white;
+        }
+
+        .install-pwa-btn:hover {
+            background-color: #047857;
+            transform: scale(1.05);
+        }
+
         /* Botón de Audio Flotante (Abajo a la Derecha) */
         .audio-control-btn {
             position: fixed;
@@ -467,6 +499,12 @@
                 padding: 20px;
                 margin: 10px;
             }
+            .install-pwa-btn {
+                bottom: 65px;
+                right: 15px;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
             .audio-control-btn {
                 bottom: 15px;
                 right: 15px;
@@ -511,6 +549,14 @@
         </svg>
     </a>
 
+    <!-- Botón de Instalar PWA (Situado arriba del botón de audio) -->
+    <div id="installPWAContainer">
+        <button id="installAppBtn" class="install-pwa-btn" onclick="installPWA()" title="Instalar aplicación en tu dispositivo">
+            <span>📲</span> <span>Instalar app</span>
+        </button>
+    </div>
+
+    <!-- Botón de Control de Audio -->
     <div id="audioControl" class="audio-control-btn" onclick="toggleAudio()" title="Pausar / Reproducir narración">
         <span id="audioIcon">🔊</span> <span id="audioText">Pausar audio</span>
     </div>
@@ -618,7 +664,7 @@
         <h2 class="footer-title">Vuelve pronto, cada semana tenemos nuevos cuentos</h2>
     </div>
 
-    <!-- Modal 1 -->
+    <!-- Modales (1 al 6) -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('modal1')">&times;</button>
@@ -650,7 +696,6 @@
         </div>
     </div>
 
-    <!-- Modal 2 -->
     <div id="modal2" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('modal2')">&times;</button>
@@ -682,7 +727,6 @@
         </div>
     </div>
 
-    <!-- Modal 3 -->
     <div id="modal3" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('modal3')">&times;</button>
@@ -711,7 +755,6 @@
         </div>
     </div>
 
-    <!-- Modal 4 -->
     <div id="modal4" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('modal4')">&times;</button>
@@ -743,7 +786,6 @@
         </div>
     </div>
 
-    <!-- Modal 5 -->
     <div id="modal5" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('modal5')">&times;</button>
@@ -775,7 +817,6 @@
         </div>
     </div>
     
-    <!-- Modal 6 -->
     <div id="modal6" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModal('modal6')">&times;</button>
@@ -808,7 +849,44 @@
     </div>
 
     <script>
-        // Mostrar el popup de oferta automáticamente al cargar la página (con un pequeño retraso de 3 segundos)
+        // Registro del Service Worker para PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker registrado con éxito:', reg.scope))
+                    .catch(err => console.log('Error al registrar Service Worker:', err));
+            });
+        }
+
+        // Lógica del botón de instalación de PWA
+        let deferredPrompt;
+        const installBtn = document.getElementById('installAppBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'flex'; // Muestra el botón Instalar app
+        });
+
+        function installPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('Usuario aceptó instalar la PWA');
+                    }
+                    deferredPrompt = null;
+                    installBtn.style.display = 'none';
+                });
+            }
+        }
+
+        window.addEventListener('appinstalled', (evt) => {
+            console.log('App instalada correctamente');
+            installBtn.style.display = 'none';
+        });
+
+        // Mostrar el popup de oferta automáticamente al cargar la página (con retraso)
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 document.getElementById('promoPopup').style.display = 'flex';
