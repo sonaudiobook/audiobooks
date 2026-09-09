@@ -457,10 +457,44 @@
             fill: white;
         }
 
+        /* Estilo para la sección de instrucciones de compra */
+        .purchase-info-box {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-left: 5px solid #059669;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 40px auto 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .purchase-info-box h3 {
+            color: #059669;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+
+        .purchase-info-box ol {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--text-main);
+        }
+
+        .purchase-info-box li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .purchase-info-box li:last-child {
+            margin-bottom: 0;
+        }
+
         /* Estilo para el título inferior */
         .footer-title {
             text-align: center;
-            margin: 50px 0 30px 0;
+            margin: 30px 0 30px 0;
             font-size: 1.5rem;
             color: #312e81;
             font-weight: 600;
@@ -524,6 +558,10 @@
             .footer-title {
                 font-size: 1.2rem;
                 padding: 0 15px;
+            }
+            .purchase-info-box {
+                padding: 15px;
+                margin: 25px 15px;
             }
         }
     </style>
@@ -660,6 +698,16 @@
 
         </div>
 
+        <!-- Bloque con los pasos para comprar agregado justo arriba del título inferior -->
+        <div class="purchase-info-box">
+            <h3>Pasos para comprar este cuento interactivo</h3>
+            <ol>
+                <li>Haz un depósito de $20.00 pesos en Tarjeta 4027 6658 6226 5791 de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.</li>
+                <li>Envía una captura o el número del depósito, junto con los nombres de los cuentos al Whatsapp 461 344 4540.</li>
+            </ol>
+            <p style="margin: 12px 0 0 0; font-weight: 500; color: #059669;">Recibirás por Whatsapp un Link para ver y descargar el cuento.</p>
+        </div>
+
         <!-- Título agregado hasta abajo -->
         <h2 class="footer-title">Vuelve pronto, cada semana tenemos nuevos cuentos</h2>
     </div>
@@ -686,11 +734,7 @@
                 </ul>
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a class="paypal-btn">Pasos para comprar este cuento interactivo.<br>
-                    1.- Haz un depósito de $20.00 pesos en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
-                             o realiza tu pago por OXXO al mismo nombre.<br>
-                            2.- Envía una captura o el numero del depósito, junto con los nombres de los cuentos al Whatsapp 461 344 4540.</a>
-                    <p style="margin-bottom: 12px; font-weight: 500;">3.- En Whatsapp recibiras un Link para ver y descargar el cuento.</p>
+                    <a href="https://wa.me/524613444540?text=Hola%20me%20interesa%20comprar%20el%20cuento%20Pipo%20y%20el%20regalo%20del%20cielo" class="paypal-btn" target="_blank" rel="noopener noreferrer">Mas información por Whatsapp.</a>
                 </div>
             </div>
         </div>
@@ -717,11 +761,7 @@
                 </ul>
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a class="paypal-btn">Pasos para comprar este cuento interactivo.<br>
-                    1.- Haz un depósito de $20.00 pesos en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
-                             o realiza tu pago por OXXO al mismo nombre.<br>
-                            2.- Envía una captura o el numero del depósito, junto con los nombres de los cuentos al Whatsapp 461 344 4540.</a>
-                    <p style="margin-bottom: 12px; font-weight: 500;">3.- En Whatsapp recibiras un Link para ver y descargar el cuento.</p>
+                    <a href="https://wa.me/524613444540?text=Hola%20me%20interesa%20comprar%20el%20cuento%20La%20mochila%20con%20bolsillos%20secretos" class="paypal-btn" target="_blank" rel="noopener noreferrer">Mas información por Whatsapp.</a>
                 </div>
             </div>
         </div>
@@ -748,7 +788,7 @@
                 </ul>
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a class="paypal-btn">Para recibir este cuento envía un Whatsapp al 461 344 4540 con el mensaje "Quiero el cuento gratis"<br>
+                    <a href="https://wa.me/524613444540?text=Hola%20quiero%20el%20cuento%20gratis%20El%20relojero%20de%20los%20sue%C3%B1os%20atrapados" class="paypal-btn" target="_blank" rel="noopener noreferrer">Para recibir este cuento envía un Whatsapp al 461 344 4540 con el mensaje "Quiero el cuento gratis"<br>
                                         Recibirás por Whatsapp instrucciones para ver y descargar el cuento.</a>
                 </div>
             </div>
@@ -776,11 +816,7 @@
                 </ul>
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a class="paypal-btn">Pasos para comprar este cuento interactivo.<br>
-                    1.- Haz un depósito de $20.00 pesos en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
-                             o realiza tu pago por OXXO al mismo nombre.<br>
-                            2.- Envía una captura o el numero del depósito, junto con los nombres de los cuentos al Whatsapp 461 344 4540.</a>
-                    <p style="margin-bottom: 12px; font-weight: 500;">3.- En Whatsapp recibiras un Link para ver y descargar el cuento.</p>
+                    <a href="https://wa.me/524613444540?text=Hola%20me%20interesa%20comprar%20el%20cuento%20El%20peque%C3%B1o%20astronauta" class="paypal-btn" target="_blank" rel="noopener noreferrer">Mas información por Whatsapp.</a>
                 </div>
             </div>
         </div>
@@ -807,11 +843,7 @@
                 </ul>
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a class="paypal-btn">Pasos para comprar este cuento interactivo.<br>
-                    1.- Haz un depósito de $20.00 pesos en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
-                             o realiza tu pago por OXXO al mismo nombre.<br>
-                            2.- Envía una captura o el numero del depósito, junto con los nombres de los cuentos al Whatsapp 461 344 4540.</a>
-                    <p style="margin-bottom: 12px; font-weight: 500;">3.- En Whatsapp recibiras un Link para ver y descargar el cuento.</p>
+                    <a href="https://wa.me/524613444540?text=Hola%20me%20interesa%20comprar%20el%20cuento%20Bot%20el%20Robot" class="paypal-btn" target="_blank" rel="noopener noreferrer">Mas información por Whatsapp.</a>
                 </div>
             </div>
         </div>
@@ -838,11 +870,7 @@
                 </ul>
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
-                    <a class="paypal-btn">Pasos para comprar este cuento interactivo.<br>
-                    1.- Haz un depósito de $20.00 pesos en Tarjeta<br> 4027 6658 6226 5791<br> de Banco azteca a nombre de Eduardo Muñoz Ramírez
-                             o realiza tu pago por OXXO al mismo nombre.<br>
-                            2.- Envía una captura o el numero del depósito, junto con los nombres de los cuentos al Whatsapp 461 344 4540.</a>
-                    <p style="margin-bottom: 12px; font-weight: 500;">3.- En Whatsapp recibiras un Link para ver y descargar el cuento.</p>
+                    <a href="https://wa.me/524613444540?text=Hola%20me%20interesa%20comprar%20el%20cuento%20El%20gran%20Archipi%C3%A9lago%20de%20los%20sombreros%20perdidos" class="paypal-btn" target="_blank" rel="noopener noreferrer">Mas información por Whatsapp.</a>
                 </div>
             </div>
         </div>
