@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo instalar la aplicación - Audiocuentos Interactivos</title>
+    
+    <!-- Configuración PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="apple-touch-icon" href="pipo.jpg">
+
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg-color: #faf8f5;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        /* Encabezado Principal */
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header-section h1 {
+            color: #312e81;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .header-section p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Tarjetas de Instrucciones */
+        .instruction-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .instruction-card h2 {
+            color: #312e81;
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .instruction-card p {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Contenedor de Pasos de Android */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .step-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .step-item img {
+            max-width: 100%;
+            height: auto;
+            max-height: 480px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-top: 15px;
+            object-fit: contain;
+        }
+
+        /* Botón de Retorno */
+        .footer-action {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn-back {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.2s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-back:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Media Queries para Responsividad */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+            }
+            .header-section h1 {
+                font-size: 1.7rem;
+            }
+            .instruction-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Encabezado -->
+        <div class="header-section">
+            <h1>Guía de Instalación</h1>
+            <p>Sigue estos sencillos pasos para instalar tus audiocuentos favoritos como una aplicación en tu dispositivo.</p>
+        </div>
+
+        <!-- Instrucciones iOS -->
+        <div class="instruction-card" style="border-left: 5px solid #0070ba;">
+            <h2>📱 Dispositivos Apple (iPhone o iPad - iOS)</h2>
+            <p>Para instalar el cuento como una aplicación desde un iPhone o iPad (iOS): Toca el botón de Compartir <strong>↗️</strong> en tu navegador Safari y selecciona <strong>"Agregar al inicio"</strong> para instalarlo.</p>
+        </div>
+
+        <!-- Instrucciones Android -->
+        <div class="instruction-card" style="border-left: 5px solid #059669;">
+            <h2>🤖 Dispositivos Android</h2>
+            <p>Para instalar desde un dispositivo Android, sigue estos pasos:</p>
+        </div>
+
+        <!-- Pasos con Imágenes (20 al 24) -->
+        <div class="steps-container">
+            
+            <div class="step-item">
+                <p><strong>Paso 1:</strong> Haz clic en los 3 puntos de la esquina superior derecha de tu navegador.</p>
+                <img src="20.jpg" alt="Paso 1 para instalar en Android">
+            </div>
+
+            <div class="step-item">
+                <p><strong>Paso 2:</strong> Selecciona la opción <strong>"Instalar y crear acceso..."</strong>.</p>
+                <img src="21.jpg" alt="Paso 2 para instalar en Android">
+            </div>
+
+            <div class="step-item">
+                <p><strong>Paso 3:</strong> Haz clic en <strong>"Instalar"</strong> dentro del menú desplegado.</p>
+                <img src="22.jpg" alt="Paso 3 para instalar en Android">
+            </div>
+
+            <div class="step-item">
+                <p><strong>Paso 4:</strong> Confirma la instalación presionando nuevamente en <strong>"Instalar"</strong>.</p>
+                <img src="23.jpg" alt="Paso 4 para instalar en Android">
+            </div>
+
+            <div class="step-item">
+                <p><strong>Paso 5:</strong> ¡Listo! El proceso continúa de forma automática y verás el icono del cuento en tu pantalla de inicio.</p>
+                <img src="24.jpg" alt="Paso 5 para instalar en Android">
+            </div>
+
+        </div>
+
+        <!-- Enlace de Retorno -->
+        <div class="footer-action">
+            <a href="https://www.abook.pro/" class="btn-back">← Volver a la página principal</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
