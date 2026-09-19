@@ -83,6 +83,24 @@
             filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
         }
 
+        /* Estilo corregido para el video insertado */
+        .featured-video-container {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .featured-video-container video {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            background-color: #000;
+        }
+
         /* Grid de Ebooks Adaptativo */
         .ebook-grid {
             display: grid;
@@ -397,6 +415,13 @@
                 width: 26px;
                 height: 26px;
             }
+            .contenedor-centrado
+            {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+  min-height: 100vh;       /* Toma todo el alto de la pantalla */
+             }
         }
     </style>
 </head>
@@ -424,6 +449,11 @@
             <img src="hero.jpg" alt="Cuentos mágicos interactivos">
         </div>
     </section>
+
+    <!-- Video Insertado con Controles Nativos -->
+    <div class="featured-video-container">
+        <video src="flip_cut.mp4" controls playsinline></video>
+    </div>
 
     <div class="container">
         <div class="ebook-grid">
@@ -717,6 +747,13 @@
         </div>
     </div>
 
+    <!-- Botón para ver guía de instalación -->
+    <div style="text-align: center; margin: 20px 0 40px 0;">
+        <a href="howto.html" style="background-color: #059669; color: white; padding: 12px 24px; border-radius: 8px; font-size: 1rem; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: background-color 0.2s;">
+            📱 ¿Cómo instalar la app?
+        </a>
+    </div>
+
     <script>
         function openModal(modalId) {
             document.getElementById(modalId).style.display = 'flex';
@@ -784,5 +821,14 @@
             controlBtn.classList.add('paused');
         });
     </script>
+
+    <!-- Texto al final de la página -->
+    <div class="contenedor-centrado">
+         <img src="botom.jpg" alt="Descripción de la imagen" width="1200" height="650">
+    </div>
+
+    <div style="text-align: center; padding: 20px 20px 40px 20px; color: var(--text-muted); font-size: 0.95rem; border-top: 1px solid var(--border-color); margin-top: 40px;">
+        <span class="ebook-price">Vuelve pronto, cada semana tenemos mas cuentos. </span> 
+    </div>
 </body>
 </html>
