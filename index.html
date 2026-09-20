@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Librería Digital - Audiocuentos Interactivos</title>
+    
+    <!-- Configuración PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
     <style>
         :root {
             --primary: #4f46e5;
@@ -415,7 +421,6 @@
                 width: 26px;
                 height: 26px;
             }
-            
         }
     </style>
 </head>
@@ -447,15 +452,10 @@
     <!-- Video Insertado con Controles Nativos -->
     <div class="featured-video-container">
         <video src="flip_cut.mp4" controls playsinline></video>
+        <span class="ebook-price">Así se ven los cuentos al pasar de página. </span> 
+        <br><br><br><br>
     </div>
-
-    <!-- Botón duplicado para ver guía de instalación debajo del video -->
-    <div style="text-align: center; margin: 10px 0 30px 0;">
-        <a href="how_to.html" style="background-color: #059669; color: white; padding: 12px 24px; border-radius: 8px; font-size: 1rem; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: background-color 0.2s;">
-            📱 ¿Cómo instalar la app?
-        </a>
-    </div>
-
+    
     <div class="container">
         <div class="ebook-grid">
 
@@ -569,10 +569,10 @@
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
                     <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; color: var(--text-main);">
-                        Pasos para comprar este cuento interactivo ($15.00 MXN)<br>
-                        1.- Haz un depósito en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
+                        Pasos para comprar este cuento interactivo.<br>
+                        1.- Haz un depósito de $15.00 pesos en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
                         2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.<br>
-                        3.- En Whatsapp recibirás un Link para ver el cuento, desde allí también instalas la aplicación y descargas el programa para Windows.
+                        3.- Recibirás por Whatsapp un Link para ver el cuento y otro para descargar el programa para ver en Windows.
                     </p>
                     <button class="paypal-btn" onclick="closeModal('modal1')">Cerrar</button>
                 </div>
@@ -603,10 +603,10 @@
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
                     <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; color: var(--text-main);">
-                        Pasos para comprar este cuento interactivo ($15.00 MXN)<br>
-                        1.- Haz un depósito en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
+                        Pasos para comprar este cuento interactivo.<br>
+                        1.- Haz un depósito de $15.00 pesos en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
                         2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.<br>
-                        3.- En Whatsapp recibirás un Link para ver el cuento, desde allí también instalas la aplicación y descargas el programa para Windows.
+                        3.- Recibirás por Whatsapp un Link para ver el cuento y otro para descargar el programa para ver en Windows.
                     </p>
                     <button class="paypal-btn" onclick="closeModal('modal2')">Cerrar</button>
                 </div>
@@ -637,8 +637,8 @@
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Descarga gratuita:</p>
                     <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; color: var(--text-main);">
-                        Para descargar este cuento envía un WhatsApp al <strong>461 344 4540</strong> con el mensaje "Quiero mi cuento gratis".<br>
-                        Recibirás un Link del cuento, desde ahí puedes instalar la app, y recibirás un Link donde descargar el programa para ver el cuento en Windows.
+                        Para obtener este cuento envía un WhatsApp al <strong>461 344 4540</strong> con el mensaje "Quiero el cuento gratis".<br>
+                        Recibirás un Link del cuento, y un Link donde descargar el programa para ver el cuento en Windows.
                     </p>
                     <button class="paypal-btn" onclick="closeModal('modal3')">Cerrar</button>
                 </div>
@@ -669,10 +669,10 @@
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
                     <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; color: var(--text-main);">
-                        Pasos para comprar este cuento interactivo ($15.00 MXN)<br>
-                        1.- Haz un depósito en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
+                        Pasos para comprar este cuento interactivo.<br>
+                        1.- Haz un depósito de $15.00 pesos en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
                         2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.<br>
-                        3.- En Whatsapp recibirás un Link para ver el cuento, desde allí también instalas la aplicación y descargas el programa para Windows.
+                        3.- Recibirás por Whatsapp un Link para ver el cuento y otro para descargar el programa para ver en Windows.
                     </p>
                     <button class="paypal-btn" onclick="closeModal('modal4')">Cerrar</button>
                 </div>
@@ -703,10 +703,10 @@
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
                     <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; color: var(--text-main);">
-                        Pasos para comprar este cuento interactivo ($15.00 MXN)<br>
-                        1.- Haz un depósito en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
+                        Pasos para comprar este cuento interactivo.<br>
+                        1.- Haz un depósito de $15.00 pesos en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
                         2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.<br>
-                        3.- En Whatsapp recibirás un Link para ver el cuento, desde allí también instalas la aplicación y descargas el programa para Windows.
+                        3.- Recibirás por Whatsapp un Link para ver el cuento y otro para descargar el programa para ver en Windows.
                     </p>
                     <button class="paypal-btn" onclick="closeModal('modal5')">Cerrar</button>
                 </div>
@@ -737,10 +737,10 @@
                 <div class="paypal-box">
                     <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
                     <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; color: var(--text-main);">
-                        Pasos para comprar este cuento interactivo ($15.00 MXN)<br>
-                        1.- Haz un depósito en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
+                        Pasos para comprar este cuento interactivo.<br>
+                        1.- Haz un depósito de $15.00 pesos en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
                         2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.<br>
-                        3.- En Whatsapp recibirás un Link para ver el cuento, desde allí también instalas la aplicación y descargas el programa para Windows.
+                        3.- Recibirás por Whatsapp un Link para ver el cuento y otro para descargar el programa para ver en Windows.
                     </p>
                     <button class="paypal-btn" onclick="closeModal('modal6')">Cerrar</button>
                 </div>
@@ -748,7 +748,7 @@
         </div>
     </div>
 
-    <!-- Botón para ver guía de instalación (Original al pie) -->
+    <!-- Botón para ver guía de instalación -->
     <div style="text-align: center; margin: 20px 0 40px 0;">
         <a href="how_to.html" style="background-color: #059669; color: white; padding: 12px 24px; border-radius: 8px; font-size: 1rem; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: background-color 0.2s;">
             📱 ¿Cómo instalar la app?
@@ -756,6 +756,7 @@
     </div>
 
     <script>
+        // Funciones de control para los modales (Ver más)
         function openModal(modalId) {
             document.getElementById(modalId).style.display = 'flex';
         }
@@ -768,6 +769,15 @@
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = 'none';
             }
+        }
+
+        // Registro de Service Worker para PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker registrado con éxito:', reg.scope))
+                    .catch(err => console.log('Error al registrar el Service Worker:', err));
+            });
         }
 
         // Control de Audio de Bienvenida
