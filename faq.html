@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes - Audiocuentos Interactivos</title>
+    
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg-color: #faf8f5;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .top-bar {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .btn-back {
+            background-color: #6b7280;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s, transform 0.2s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-back:hover {
+            background-color: #4b5563;
+            transform: translateY(-1px);
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        h1 {
+            color: #312e81;
+            margin-bottom: 8px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            font-size: 1.05rem;
+            text-align: center;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #312e81;
+            margin-bottom: 8px;
+        }
+
+        .faq-answer {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .faq-answer strong {
+            color: var(--text-main);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botón superior para regresar -->
+    <div class="top-bar">
+        <a href="index.html" class="btn-back">← Volver al inicio</a>
+    </div>
+
+    <div class="container">
+        <h1>Preguntas Frecuentes</h1>
+        <p class="subtitle">Resolvemos las dudas más comunes sobre nuestros cuentos interactivos.</p>
+        
+        <div class="faq-list">
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Cuál es el precio de los cuentos?</div>
+                <p class="faq-answer">15 pesos cada uno.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Tienen suscripción?</div>
+                <p class="faq-answer">No manejamos suscripciones.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Si pierdo mi link para ver el cuento, ¿debo pagar nuevamente?</div>
+                <p class="faq-answer">No, solamente con darnos el comprobante de pago y la fecha del pago y te volvemos a dar un link de los cuentos que has comprado.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Los cuentos son compatibles con celular solamente?</div>
+                <p class="faq-answer">No solamente en celular, ese mismo link que te damos para celular funciona a la perfeccion en una pc con internet, pero además 
+                     te damos un link para descargar un archivo ejecutable, la descarga está en formato .zip comprimido pues internet bloquea los archivos 
+                     ejecutables y no deja descargarlos. Al descomprimir y abrir ese archivo puedes usar y ver el cuento desde una PC con Windows sin conexión a internet.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Requieren actualizaciones los cuentos?</div>
+                <p class="faq-answer">No.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Tienen otro tipo de género que no sea infantil?</div>
+                <p class="faq-answer">No, solamente hacemos cuentos enfocados en niños de entre 4 y 10 años.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Cuál es la forma de pago?</div>
+                <p class="faq-answer">
+                    Estos son los pasos para comprar un cuento interactivo:<br>
+                    <strong>1.-</strong> Haz un depósito de $15.00 pesos en la tarjeta <strong>4027 6658 6226 5791</strong> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
+                    <strong>2.-</strong> Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al WhatsApp <strong>461 344 4540</strong>.<br>
+                    <strong>3.-</strong> Recibirás por WhatsApp un link para ver el cuento y otro para descargar el programa para ver en Windows.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Manejan devoluciones?</div>
+                <p class="faq-answer">
+                    No manejamos devoluciones, para conocer la calidad y el formato de los cuentos te damos la oportunidad de descargar un cuento gratis desde la página
+                    y de esa manera conoces nuestro producto y la forma como se muestran en tu celular o pc windows.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Cuál es la forma de pago?</div>
+                <p class="faq-answer">
+                    Estos son los pasos para comprar un cuento interactivo:<br>
+                    <strong>1.-</strong> Haz un depósito de $15.00 pesos en la tarjeta <strong>4027 6658 6226 5791</strong> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
+                    <strong>2.-</strong> Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al WhatsApp <strong>461 344 4540</strong>.<br>
+                    <strong>3.-</strong> Recibirás por WhatsApp un link para ver el cuento y otro para descargar el programa para ver en Windows.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Los cuentos los puedo descargar para ver después?</div>
+                <p class="faq-answer">Solo el programa ejecutable para Windows se puede descargar; los links de los cuentos para celular deben verse conectados a internet (WiFi o datos de celular).</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Botón inferior -->
+    <div class="top-bar" style="margin-top: 20px; justify-content: center;">
+        <a href="index.html" class="btn-back" style="background-color: var(--primary);">← Volver a la página principal</a>
+    </div>
+
+</body>
+</html>

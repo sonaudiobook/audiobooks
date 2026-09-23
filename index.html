@@ -204,6 +204,43 @@
             background-color: var(--primary-hover);
         }
 
+        /* Sección de Sugerencias Call to Action */
+        .suggestions-cta {
+            max-width: 700px;
+            margin: 50px auto 20px auto;
+            background: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        .suggestions-cta p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #312e81;
+            margin: 0 0 20px 0;
+        }
+
+        .btn-go {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.2s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+        }
+
+        .btn-go:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
         /* Modal Styles */
         .modal {
             display: none;
@@ -421,6 +458,10 @@
                 width: 26px;
                 height: 26px;
             }
+            .suggestions-cta {
+                padding: 20px;
+                margin: 30px 10px;
+            }
         }
     </style>
 </head>
@@ -544,8 +585,16 @@
             </div>
 
         </div>
+
+        <!-- SECCIÓN DE LLAMADA A LA ACCIÓN (SUGERENCIAS) -->
+        <div class="suggestions-cta">
+            <p>Nos importan tus sugerencias, deja tus comentarios y sugerencias.</p>
+            <a href="sugerencias.html" class="btn-go">Ir</a>
+        </div>
+
     </div>
 
+    <!-- Modales de los libros (del 1 al 6) -->
     <!-- Modal 1 -->
     <div id="modal1" class="modal">
         <div class="modal-content">
@@ -748,8 +797,11 @@
         </div>
     </div>
 
-    <!-- Botón para ver guía de instalación -->
-    <div style="text-align: center; margin: 20px 0 40px 0;">
+   <!-- Botones de Ayuda Alineados (Preguntas Frecuentes y Cómo instalar la app) -->
+    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 30px 20px 40px 20px;">
+        <a href="faq.html" style="background-color: var(--primary); color: white; padding: 12px 24px; border-radius: 8px; font-size: 1rem; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: background-color 0.2s;">
+            ❓ Preguntas Frecuentes
+        </a>
         <a href="how_to.html" style="background-color: #059669; color: white; padding: 12px 24px; border-radius: 8px; font-size: 1rem; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: background-color 0.2s;">
             📱 ¿Cómo instalar la app?
         </a>
@@ -826,11 +878,6 @@
             }
         }
 
-        audio.addEventListener('ended', () => {
-            audioIcon.textContent = "🔄";
-            audioText.textContent = "Volver a escuchar";
-            controlBtn.classList.add('paused');
-        });
     </script>
 
     <div style="text-align: center; padding: 20px 20px 40px 20px; color: var(--text-muted); font-size: 0.95rem; border-top: 1px solid var(--border-color); margin-top: 40px;">
