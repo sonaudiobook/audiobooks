@@ -8,7 +8,8 @@
     <!-- Configuración PWA -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#4f46e5">
-    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="apple-touch-icon" href="images/icon-192.png">
+    <link rel="icon" href="images/favicon.ico">
 
     <style>
         :root {
@@ -486,13 +487,13 @@
             <p>Historias ilustradas con narración en video para despertar la imaginación de los más pequeños página por página.</p>
         </div>
         <div class="hero-image">
-            <img src="hero.jpg" alt="Cuentos mágicos interactivos">
+            <img src="images/hero.jpg" alt="Cuentos mágicos interactivos">
         </div>
     </section>
 
     <!-- Video Insertado con Controles Nativos -->
     <div class="featured-video-container">
-        <video src="flip_cut.mp4" controls playsinline></video>
+        <video src="videos/flip_cut.mp4" controls playsinline></video>
         <span class="ebook-price">Así se ven los cuentos al pasar de página. </span> 
         <br><br><br><br>
     </div>
@@ -500,10 +501,10 @@
     <div class="container">
         <div class="ebook-grid">
 
-            <!-- 1. El Relojero (Gratis - Movido al primer lugar) -->
+            <!-- 1. El Relojero -->
             <div class="ebook-card">
                 <div class="ebook-cover">
-                    <img src="relojero.jpg" alt="Audiocuento Interactivo">
+                    <img src="images/relojero.jpg" alt="Audiocuento Interactivo">
                 </div>
                 <div class="ebook-info">
                     <h3 class="ebook-title">El relojero de los sueños atrapados</h3>
@@ -518,7 +519,7 @@
             <!-- 2. La Mochila -->
             <div class="ebook-card">
                 <div class="ebook-cover">
-                    <img src="mochila.jpg" alt="Audiocuento Interactivo">
+                    <img src="images/mochila.jpg" alt="Audiocuento Interactivo">
                 </div>
                 <div class="ebook-info">
                     <h3 class="ebook-title">La mochila con bolsillos secretos</h3>
@@ -530,10 +531,10 @@
                 </div>
             </div>
 
-            <!-- 3. Pipo (Movido al tercer lugar) -->
+            <!-- 3. Pipo -->
             <div class="ebook-card">
                 <div class="ebook-cover">
-                    <img src="pipo.jpg" alt="Audiocuento Interactivo">
+                    <img src="images/pipo.jpg" alt="Audiocuento Interactivo">
                 </div>
                 <div class="ebook-info">
                     <h3 class="ebook-title">Pipo y el regalo del cielo</h3>
@@ -548,7 +549,7 @@
             <!-- 4. El Pequeño Astronauta -->
             <div class="ebook-card">
                 <div class="ebook-cover">
-                    <img src="astronauta.jpg" alt="Audiocuento Interactivo">
+                    <img src="images/astronauta.jpg" alt="Audiocuento Interactivo">
                 </div>
                 <div class="ebook-info">
                     <h3 class="ebook-title">El Pequeño astronauta</h3>
@@ -563,11 +564,11 @@
             <!-- 5. Bot el Robot -->
             <div class="ebook-card">
                 <div class="ebook-cover">
-                    <img src="bot.jpg" alt="Audiocuento Interactivo">
+                    <img src="images/bot.jpg" alt="Audiocuento Interactivo">
                 </div>
                 <div class="ebook-info">
                     <h3 class="ebook-title">Bot el Robot</h3>
-                    <p class="ebook-desc">Un anciano descubre un robot descompuesto y lo repara, despúes juntos rescatan a otro robot de la basura. </p>
+                    <p class="ebook-desc">Un anciano descubre un robot descompuesto y lo repara, después juntos rescatan a otro robot de la basura.</p>
                     <div class="ebook-footer">
                         <span class="ebook-price">$15.00 MXN</span>
                         <button class="btn-detail" onclick="openModal('modal5')">Ver más</button>
@@ -578,14 +579,74 @@
             <!-- 6. El gran Archipiélago -->
             <div class="ebook-card">
                 <div class="ebook-cover">
-                    <img src="sombreros.jpg" alt="Audiocuento Interactivo">
+                    <img src="images/sombreros.jpg" alt="Audiocuento Interactivo">
                 </div>
                 <div class="ebook-info">
-                    <h3 class="ebook-title">El gran Archipiélago de los sombreros perdidos.</h3>
+                    <h3 class="ebook-title">El gran Archipiélago de los sombreros perdidos</h3>
                     <p class="ebook-desc">Una aventura con mundos y sombreros mágicos.</p>
                     <div class="ebook-footer">
                         <span class="ebook-price">$15.00 MXN</span>
                         <button class="btn-detail" onclick="openModal('modal6')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. El Patito Curioso -->
+            <div class="ebook-card">
+                <div class="ebook-cover">
+                    <img src="images/patito.jpg" alt="Audiocuento Interactivo">
+                </div>
+                <div class="ebook-info">
+                    <h3 class="ebook-title">El Patito Curioso</h3>
+                    <p class="ebook-desc">Acompaña a un tierno patito en su viaje para descubrir los misterios que hay más allá del gran lago.</p>
+                    <div class="ebook-footer">
+                        <span class="ebook-price">$15.00 MXN</span>
+                        <button class="btn-detail" onclick="openModal('modal7')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. El Gigante Egoísta -->
+            <div class="ebook-card">
+                <div class="ebook-cover">
+                    <img src="images/gigante.jpg" alt="Audiocuento Interactivo">
+                </div>
+                <div class="ebook-info">
+                    <h3 class="ebook-title">El Gigante Egoísta</h3>
+                    <p class="ebook-desc">Un hermoso relato clásico sobre un jardín secreto y cómo la generosidad puede devolver la alegría.</p>
+                    <div class="ebook-footer">
+                        <span class="ebook-price">$15.00 MXN</span>
+                        <button class="btn-detail" onclick="openModal('modal8')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. La Gran Aventura de Marcos -->
+            <div class="ebook-card">
+                <div class="ebook-cover">
+                    <img src="images/marcos.jpg" alt="Audiocuento Interactivo">
+                </div>
+                <div class="ebook-info">
+                    <h3 class="ebook-title">La Gran Aventura de Marcos</h3>
+                    <p class="ebook-desc">Marcos emprende un viaje lleno de descubrimientos junto a su fiel perro en busca de un tesoro familiar.</p>
+                    <div class="ebook-footer">
+                        <span class="ebook-price">$15.00 MXN</span>
+                        <button class="btn-detail" onclick="openModal('modal9')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. El Flautista de Hammelin -->
+            <div class="ebook-card">
+                <div class="ebook-cover">
+                    <img src="images/hammelin.jpg" alt="Audiocuento Interactivo">
+                </div>
+                <div class="ebook-info">
+                    <h3 class="ebook-title">El Flautista de Hammelin</h3>
+                    <p class="ebook-desc">La mágica historia de un misterioso músico y las melodías que transformaron a todo un pueblo.</p>
+                    <div class="ebook-footer">
+                        <span class="ebook-price">$15.00 MXN</span>
+                        <button class="btn-detail" onclick="openModal('modal10')">Ver más</button>
                     </div>
                 </div>
             </div>
@@ -600,7 +661,7 @@
 
     </div>
 
-    <!-- Modales de los libros (actualizados al nuevo orden) -->
+    <!-- Modales de los libros -->
     <!-- Modal 1: El Relojero (Gratis) -->
     <div id="modal1" class="modal">
         <div class="modal-content">
@@ -803,7 +864,143 @@
         </div>
     </div>
 
-   <!-- Botones de Ayuda Alineados (Preguntas Frecuentes y Cómo instalar la app) -->
+    <!-- Modal 7: El Patito Curioso -->
+    <div id="modal7" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal7')">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon">🔮</div>
+                <div>
+                    <h2>El Patito Curioso</h2>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $15.00 MXN</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Este audiocuento interactivo de 24 páginas combina hermosas ilustraciones con audio incrustado donde una narradora guía a los niños página por página.</p>
+                <ul class="features-list">
+                    <li>Formato: libro digital interactivo.</li>
+                    <li>Cambias de hoja haciendo clic en la esquina de abajo de la imagen o arrastrando la página.</li>
+                    <li>Botón de audio para escuchar la narración en cada hoja.</li>
+                    <li>Compatible con celulares, tablets y computadoras.</li>
+                    <li>Cada cuento que recibes es una aplicación que instalas en tu celular o ves en tu pc Windows.</li>
+                </ul>
+                <div class="paypal-box">
+                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; color: var(--text-main);">
+                        Pasos para comprar este cuento interactivo.<br>
+                        1.- Haz un depósito de $15.00 pesos en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
+                        2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.<br>
+                        3.- Recibirás por Whatsapp un Link para ver el cuento y otro para descargar el programa para ver en Windows.
+                    </p>
+                    <button class="paypal-btn" onclick="closeModal('modal7')">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 8: El Gigante Egoísta -->
+    <div id="modal8" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal8')">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon">🔮</div>
+                <div>
+                    <h2>El Gigante Egoísta</h2>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $15.00 MXN</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Este audiocuento interactivo de 26 páginas combina hermosas ilustraciones con audio incrustado donde una narradora guía a los niños página por página.</p>
+                <ul class="features-list">
+                    <li>Formato: libro digital interactivo.</li>
+                    <li>Cambias de hoja haciendo clic en la esquina de abajo de la imagen o arrastrando la página.</li>
+                    <li>Botón de audio para escuchar la narración en cada hoja.</li>
+                    <li>Compatible con celulares, tablets y computadoras.</li>
+                    <li>Cada cuento que recibes es una aplicación que instalas en tu celular o ves en tu pc Windows.</li>
+                </ul>
+                <div class="paypal-box">
+                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; color: var(--text-main);">
+                        Pasos para comprar este cuento interactivo.<br>
+                        1.- Haz un depósito de $15.00 pesos en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
+                        2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.<br>
+                        3.- Recibirás por Whatsapp un Link para ver el cuento y otro para descargar el programa para ver en Windows.
+                    </p>
+                    <button class="paypal-btn" onclick="closeModal('modal8')">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 9: La Gran Aventura de Marcos -->
+    <div id="modal9" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal9')">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon">🔮</div>
+                <div>
+                    <h2>La Gran Aventura de Marcos</h2>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $15.00 MXN</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Este audiocuento interactivo de 28 páginas combina hermosas ilustraciones con audio incrustado donde una narradora guía a los niños página por página.</p>
+                <ul class="features-list">
+                    <li>Formato: libro digital interactivo.</li>
+                    <li>Cambias de hoja haciendo clic en la esquina de abajo de la imagen o arrastrando la página.</li>
+                    <li>Botón de audio para escuchar la narración en cada hoja.</li>
+                    <li>Compatible con celulares, tablets y computadoras.</li>
+                    <li>Cada cuento que recibes es una aplicación que instalas en tu celular o ves en tu pc Windows.</li>
+                </ul>
+                <div class="paypal-box">
+                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; color: var(--text-main);">
+                        Pasos para comprar este cuento interactivo.<br>
+                        1.- Haz un depósito de $15.00 pesos en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
+                        2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.<br>
+                        3.- Recibirás por Whatsapp un Link para ver el cuento y otro para descargar el programa para ver en Windows.
+                    </p>
+                    <button class="paypal-btn" onclick="closeModal('modal9')">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 10: El Flautista de Hammelin -->
+    <div id="modal10" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal10')">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon">🔮</div>
+                <div>
+                    <h2>El Flautista de Hammelin</h2>
+                    <p style="margin:0; color: #059669; font-weight: bold;">Precio: $15.00 MXN</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Este audiocuento interactivo de 30 páginas combina hermosas ilustraciones con audio incrustado donde una narradora guía a los niños página por página.</p>
+                <ul class="features-list">
+                    <li>Formato: libro digital interactivo.</li>
+                    <li>Cambias de hoja haciendo clic en la esquina de abajo de la imagen o arrastrando la página.</li>
+                    <li>Botón de audio para escuchar la narración en cada hoja.</li>
+                    <li>Compatible con celulares, tablets y computadoras.</li>
+                    <li>Cada cuento que recibes es una aplicación que instalas en tu celular o ves en tu pc Windows.</li>
+                </ul>
+                <div class="paypal-box">
+                    <p style="margin-bottom: 12px; font-weight: 500;">Realiza tu compra segura:</p>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; color: var(--text-main);">
+                        Pasos para comprar este cuento interactivo.<br>
+                        1.- Haz un depósito de $15.00 pesos en Tarjeta<br><strong>4027 6658 6226 5791</strong><br> de Banco Azteca a nombre de Eduardo Muñoz Ramírez o realiza tu pago por OXXO al mismo nombre.<br>
+                        2.- Envía el número de movimiento bancario o el comprobante junto con los nombres de los cuentos al Whatsapp 461 344 4540.<br>
+                        3.- Recibirás por Whatsapp un Link para ver el cuento y otro para descargar el programa para ver en Windows.
+                    </p>
+                    <button class="paypal-btn" onclick="closeModal('modal10')">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Botones de Ayuda Alineados -->
     <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 30px 20px 40px 20px;">
         <a href="faq.html" style="background-color: var(--primary); color: white; padding: 12px 24px; border-radius: 8px; font-size: 1rem; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: background-color 0.2s;">
             ❓ Preguntas Frecuentes
@@ -814,7 +1011,7 @@
     </div>
 
     <script>
-        // Funciones de control para los modales (Ver más)
+        // Funciones de control para los modales
         function openModal(modalId) {
             document.getElementById(modalId).style.display = 'flex';
         }
@@ -838,10 +1035,10 @@
             });
         }
 
-        // Control de Audio de Bienvenida
+        // Control de Audio de Bienvenida con ruta actualizada a la carpeta sound/
         const audio = document.getElementById('welcomeAudio');
         const randomNum = Math.floor(Math.random() * 5) + 1;
-        audio.src = `bienvenida${randomNum}.mp3`;
+        audio.src = `sound/bienvenida${randomNum}.mp3`;
         const controlBtn = document.getElementById('audioControl');
         const audioIcon = document.getElementById('audioIcon');
         const audioText = document.getElementById('audioText');
@@ -887,7 +1084,7 @@
     </script>
 
     <div style="text-align: center; padding: 20px 20px 40px 20px; color: var(--text-muted); font-size: 0.95rem; border-top: 1px solid var(--border-color); margin-top: 40px;">
-        <span class="ebook-price">Vuelve pronto, cada semana tenemos mas cuentos. </span> 
+        <span class="ebook-price">Vuelve pronto, cada semana tenemos más cuentos. </span> 
     </div>
 </body>
 </html>
